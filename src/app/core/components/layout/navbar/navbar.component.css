@@ -1,0 +1,113 @@
+.burger-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#burger-toggle:checked ~ .menu {
+  display: flex;
+}
+
+.menu {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  background: #1a1830;
+  padding: 10px 10px;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+  z-index: 999;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+  transition: transform 0.3s;
+}
+
+.menu img:hover {
+  transform: scale(1.2);
+}
+
+.burger {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.burger .line {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  border-radius: 3px;
+  position: relative;
+}
+
+.burger .line::before,
+.burger .line::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+.burger .line::before {
+  transform: translateY(-8px);
+}
+
+.burger .line::after {
+  transform: translateY(8px);
+}
+
+/* عند التفعيل */
+#burger-toggle:checked + .burger .line {
+  background-color: transparent;
+}
+
+#burger-toggle:checked + .burger .line::before {
+  transform: rotate(45deg);
+}
+
+#burger-toggle:checked + .burger .line::after {
+  transform: rotate(-45deg);
+}
+
+@keyframes animation1 {
+  0% {
+    transform: translateY(8px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(45deg);
+  }
+}
+@keyframes animation2 {
+  0% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-45deg);
+  }
+}
