@@ -1,13 +1,25 @@
 <div class="burger-wrapper">
-  <input type="checkbox" id="burger-toggle" hidden />
-
-  <label class="burger" for="burger-toggle">
-    <span class="line"></span>
+  <label class="burger" (click)="openMenu()">
+    <span class="line group relative"
+          (mouseenter)="isHovered = true"
+          (mouseleave)="isHovered = false">
+      @if (isHovered) {
+        <i [class]="isOpen ? 'fa-solid fa-chevron-down' : 'fa-solid fa-chevron-up'"></i>
+      }
+    </span>
   </label>
 
-  <ul class="menu">
-    <li><img src="images/bootstrap-svgrepo-com.svg" alt="Icon 1" /></li>
-    <li><img src="images/bootstrap-svgrepo-com.svg" alt="Icon 2" /></li>
-    <li><img src="images/bootstrap-svgrepo-com.svg" alt="Icon 3" /></li>
-  </ul>
+  <div class="overlay d-flex justify-center items-center"
+       [class.translate-y-0]="isOpen"
+       [class.translate-y-full]="!isOpen">
+    
+    <div class="menu_nav" (click)="closeMenu()">
+      <ul>
+        <li><a routerLink="home">Home</a></li>
+        <li><a routerLink="projects">My Projects</a></li>
+        <li><a routerLink="about">About Me</a></li>
+        <li><a routerLink="contact">Contact Me</a></li>
+      </ul>
+    </div>
+  </div>
 </div>

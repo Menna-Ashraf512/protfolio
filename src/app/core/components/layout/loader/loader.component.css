@@ -1,4 +1,6 @@
-/* The loader container */
+.z-100{
+  z-index: 999;
+}
 .loader {
   position: absolute;
   top: 50%;

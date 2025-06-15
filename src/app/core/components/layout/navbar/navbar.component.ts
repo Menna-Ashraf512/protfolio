@@ -8,6 +8,14 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+isOpen = false;
+isHovered=false;
+openMenu() {
+  this.isOpen = !this.isOpen;
+}
 
+closeMenu() {
+  this.isOpen = !this.isOpen; 
+}
 }
 
